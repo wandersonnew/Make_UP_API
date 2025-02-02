@@ -99,11 +99,11 @@ Se você deseja testar a API localmente, pode usar ferramentas como **Postman** o
 
 Swagger pronto para alternar entre versões
 
-![Exemplo](/img/version.PNG "Version")
+![Exemplo](/img/version.png "Version")
 
 Endpoints da API
 
-![Exemplo](/img/endpoints.PNG "Endpoints")
+![Exemplo](/img/endpoints.png "Endpoints")
 
 ## Licença
 
