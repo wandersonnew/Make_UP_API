@@ -95,6 +95,16 @@ Se você deseja testar a API localmente, pode usar ferramentas como **Postman** o
 
 ---
 
+## Ilustrações
+
+Swagger pronto para alternar entre versões
+
+![Exemplo](/img/version.PNG "Version")
+
+Endpoints da API
+
+![Exemplo](/img/endpoints.PNG "Endpoints")
+
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.

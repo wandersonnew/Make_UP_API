@@ -26,6 +26,36 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.Controllers.ProductController",
+    "Method": "GetBrandList",
+    "RelativePath": "api/v1/Product/brandlist",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductController",
+    "Method": "GetSearchParameters",
+    "RelativePath": "api/v1/Product/search-parameters",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductController",
+    "Method": "GetTagList",
+    "RelativePath": "api/v1/Product/taglist",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.UserController",
     "Method": "RegisterUser",
     "RelativePath": "api/v1/User",
