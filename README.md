@@ -6,9 +6,24 @@ Este projeto é uma API construída com ASP.NET Core e SQLite como banco de dados 
 
 Certifique-se de ter as seguintes ferramentas instaladas no seu ambiente de desenvolvimento:
 
+### Ferramentas Necessárias:
+
 - [Visual Studio](https://visualstudio.microsoft.com/) ou [Visual Studio Code](https://code.visualstudio.com/) com suporte para .NET Core
-- [.NET SDK 6.0+](https://dotnet.microsoft.com/download/dotnet) (ou versão compatível)
+- [.NET SDK 9.0.101](https://dotnet.microsoft.com/download/dotnet) (ou versão compatível)
 - [SQLite](https://www.sqlite.org/download.html) (embutido no projeto, mas você pode precisar do cliente para inspeção)
+
+## Dependências NuGet:
+
+Este projeto depende dos seguintes pacotes NuGet:
+
+- Microsoft.AspNetCore.Authentication.JwtBearer versão 8.0.12
+- Microsoft.AspNetCore.Mvc.Versioning versão 5.1.0
+- Microsoft.EntityFrameworkCore versão 9.0.1
+- Microsoft.EntityFrameworkCore.Design versão 9.0.1
+- Microsoft.EntityFrameworkCore.Sqlite versão 9.0.1
+- Microsoft.EntityFrameworkCore.Tools versão 9.0.1
+- Newtonsoft.Json versão 13.0.3
+- Swashbuckle.AspNetCore versão 7.2.0
 
 ## Instalação
 
