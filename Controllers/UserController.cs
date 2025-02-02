@@ -40,7 +40,13 @@ namespace API.Controllers
         [Authorize]
         public async Task<IActionResult> List()
         {
-            var users = await _context.Users.ToListAsync();
+            var users = await _context.Users
+                              .Select(u => new
+                              {
+                                  u.Name,
+                                  u.Email
+                              })
+                              .ToListAsync();
 
             if (users == null || !users.Any())
             {
@@ -48,13 +54,6 @@ namespace API.Controllers
             }
 
             return Ok(users);
-        }
-
-        [HttpGet("create/{id}")]
-        public IActionResult CreateUser(int id)
-        {
-            var response = new { mensagem = $"Cria usuário {id}." };
-            return Ok(response);
         }
     }
 }

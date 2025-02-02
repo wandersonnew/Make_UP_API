@@ -43,22 +43,6 @@
   },
   {
     "ContainingType": "API.Controllers.UserController",
-    "Method": "CreateUser",
-    "RelativePath": "api/v1/User/create/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.UserController",
     "Method": "List",
     "RelativePath": "api/v1/User/list",
     "HttpMethod": "GET",

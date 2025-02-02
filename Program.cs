@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using System.Diagnostics.Metrics;
 using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,12 +41,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddApiVersioning(options =>
+{
+    options.ReportApiVersions = true;  // Para informar no Swagger as versões disponíveis
+    options.AssumeDefaultVersionWhenUnspecified = true;  // Se não especificar versão, usa a versão padrão
+    options.DefaultApiVersion = new ApiVersion(1, 0);  // Define a versão padrão como v1
+});
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MakeUP", Version = "v1" });
+    c.SwaggerDoc("v2", new OpenApiInfo { Title = "MakeUP", Version = "v2" });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
@@ -72,6 +82,8 @@ builder.Services.AddSwaggerGen(c =>
                 });
 });
 
+builder.Services.AddMemoryCache();
+
 builder.Services.AddHttpClient();
 
 var app = builder.Build();
@@ -80,7 +92,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    //app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "MakeUP v1");
+        options.SwaggerEndpoint("/swagger/v2/swagger.json", "MakeUP v2");
+    });
 }
 
 app.UseHttpsRedirection();

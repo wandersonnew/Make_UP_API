@@ -18,8 +18,5 @@ namespace API.Models
         [Required(ErrorMessage = "A senha é obrigatória.")]
         [StringLength(100, MinimumLength = 6, ErrorMessage = "A senha deve ter no mínimo 6 caracteres.")]
         public string Password { get; set; } = string.Empty;
-
-        [Compare("Password", ErrorMessage = "A confirmação da senha não corresponde.")]
-        public string ConfirmPassword { get; set; } = string.Empty;
     }
 }
