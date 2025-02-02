@@ -15,8 +15,8 @@ Certifique-se de ter as seguintes ferramentas instaladas no seu ambiente de dese
 1. **Clone o repositório**:
 
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
-    cd seu-repositorio
+    git clone https://github.com/wandersonnew/Make_UP_API.git
+    cd Make_UP_API
     ```
 
 2. **Instalar as dependências**:

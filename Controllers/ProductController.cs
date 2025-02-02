@@ -29,7 +29,7 @@ namespace API.Controllers
 
             if (cachedProducts != null)
             {
-                return Ok(cachedProducts); // Retorna os dados do cache
+                return Ok(cachedProducts);
             }
 
             try
@@ -38,7 +38,6 @@ namespace API.Controllers
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 
-                // Armazena os produtos no cache por 10 minutos
                 _memoryCache.Set(cacheKey, responseBody, TimeSpan.FromMinutes(10));
 
                 return Ok(responseBody);
@@ -51,7 +50,7 @@ namespace API.Controllers
         }
 
         [Authorize]
-        [HttpGet("search-parameters")]
+        [HttpGet("list-search-parameters")]
         public IActionResult GetSearchParameters()
         {
             var searchParameters = new List<object>
@@ -123,6 +122,63 @@ namespace API.Controllers
 
             return Ok(brandList);
         }
+
+        [Authorize]
+        [HttpGet("search")]
+        public async Task<IActionResult> GetProductsByParametersAsync(
+            [FromQuery] string brand = null,
+            [FromQuery] string product_type = null,
+            [FromQuery] string product_category = null,
+            [FromQuery] string product_tags = null,
+            [FromQuery] decimal? price_greater_than = null,
+            [FromQuery] decimal? price_less_than = null,
+            [FromQuery] decimal? rating_greater_than = null,
+            [FromQuery] decimal? rating_less_than = null)
+        {
+            var queryParameters = new List<string>();
+
+            if (!string.IsNullOrEmpty(brand))
+                queryParameters.Add($"brand={brand}");
+
+            if (!string.IsNullOrEmpty(product_type))
+                queryParameters.Add($"product_type={product_type}");
+
+            if (!string.IsNullOrEmpty(product_category))
+                queryParameters.Add($"product_category={product_category}");
+
+            if (!string.IsNullOrEmpty(product_tags))
+                queryParameters.Add($"product_tags={product_tags}");
+
+            if (price_greater_than.HasValue)
+                queryParameters.Add($"price_greater_than={price_greater_than.Value}");
+
+            if (price_less_than.HasValue)
+                queryParameters.Add($"price_less_than={price_less_than.Value}");
+
+            if (rating_greater_than.HasValue)
+                queryParameters.Add($"rating_greater_than={rating_greater_than.Value}");
+
+            if (rating_less_than.HasValue)
+                queryParameters.Add($"rating_less_than={rating_less_than.Value}");
+
+            var queryString = string.Join("&", queryParameters);
+
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(this.url + "?" + queryString);
+
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                return Ok(responseBody);
+            }
+            catch (HttpRequestException e)
+            {
+                _logger.LogError($"Erro ao obter produtos com parâmetros: {e.Message}");
+                return StatusCode(500, "Erro ao obter produtos da API");
+            }
+        }
+
 
     }
 }

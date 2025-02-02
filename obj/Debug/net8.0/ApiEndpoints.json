@@ -38,11 +38,62 @@
   {
     "ContainingType": "API.Controllers.ProductController",
     "Method": "GetSearchParameters",
-    "RelativePath": "api/v1/Product/search-parameters",
+    "RelativePath": "api/v1/Product/list-search-parameters",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ProductController",
+    "Method": "GetProductsByParametersAsync",
+    "RelativePath": "api/v1/Product/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "brand",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "product_type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "product_category",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "product_tags",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "price_greater_than",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "price_less_than",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "rating_greater_than",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "rating_less_than",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
