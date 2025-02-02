@@ -63,7 +63,7 @@ O banco de dados SQLite é armazenado no arquivo `app.db` na raiz do projeto. Est
     dotnet run
     ```
 
-    A API estará disponível no endereço `http://localhost:5000` (ou o que for configurado na sua aplicação).
+    A API estará disponível no endereço `https://localhost:7241/swagger/index.html` (ou o que for configurado na sua aplicação).
 
 ## Autenticação
 
@@ -71,7 +71,7 @@ A API usa autenticação baseada em **JWT**. Ao realizar login, você receberá um t
 
 1. **Obter um token JWT**:
    
-    Faça uma requisição `POST` para o endpoint `/login` passando as credenciais do usuário. O token será retornado no corpo da resposta.
+    Faça uma requisição `POST` para o endpoint `/api/Auth/login` passando as credenciais do usuário. O token será retornado no corpo da resposta.
 
 2. **Utilizar o token**:
 
@@ -91,19 +91,9 @@ Se você deseja testar a API localmente, pode usar ferramentas como **Postman** o
 
 - **Obter produtos de maquiagem**:
 
-    Requisição `GET` para `http://localhost:5000/api/v1/products`, incluindo o cabeçalho de autorização com o token JWT.
+    Requisição `GET` para `https://localhost:7241/api/v1/Product`, incluindo o cabeçalho de autorização com o token JWT.
 
 ---
-
-## Contribuindo
-
-Se você deseja contribuir para o projeto, siga as etapas abaixo:
-
-1. Fork o repositório.
-2. Crie uma branch para a sua feature (`git checkout -b feature/minha-nova-feature`).
-3. Faça commit das suas alterações (`git commit -am 'Adicionando uma nova feature'`).
-4. Push para a branch (`git push origin feature/minha-nova-feature`).
-5. Abra um Pull Request explicando as alterações realizadas.
 
 ## Licença
 
