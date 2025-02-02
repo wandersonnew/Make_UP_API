@@ -1,4 +1,4 @@
-# Projeto ASP.NET com SQLite
+# Projeto ASP.NET com SQLite (Consumindo API MakeUP)
 
 Este projeto é uma API construída com ASP.NET Core e SQLite como banco de dados embutido. Abaixo estão as orientações para configurar e rodar o projeto localmente.
 
